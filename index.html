@@ -64,7 +64,7 @@
         vector.y =
           noise.simplex2(j * 0.05 + i - offset, a * splines[i].speed) * 10;
         vector.z = noise.simplex2(vector.x * 0.05 + i, a * splines[i].speed) * 10;
-  
+        // Math.abs()获得绝对值
         vector.y *= 1 - Math.abs(vector.x / length);
         vector.z *= 1 - Math.abs(vector.x / length);
       }

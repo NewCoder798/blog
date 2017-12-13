@@ -6,13 +6,19 @@ export default new Router({
   routes: [
     {
 			path: '/', 
-			redirect: to => { return 'layout'},
+			redirect: to => { return '/index'},
     },
-    // {
-		// 	path: '/articles',
-		// 	name: 'article',
-		// 	component: resolve => require(['@/pages/article'], resolve),
-		// 	meta: {auth: false}
-		// },
+    {
+			path: '/articles',
+			name: 'article',
+			component: resolve => require(['@/components/article'], resolve),
+			meta: {auth: false}
+		},
+		{
+			path: '/index',
+			name: 'index',
+			component: resolve => require(['@/layout/index'], resolve),
+			meta: {auth: false}
+		},
   ]
 })

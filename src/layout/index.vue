@@ -11,9 +11,13 @@
       </div>
     </header>
     <nav>
-      <div v-for="(item,index) in navList" :key="index">
-        {{ item.title }}
-      </div>
+      <ul>
+        <li v-for="(item,index) in navList" :key="index">
+          <router-link :to="item.action">
+            {{ item.title }}
+          </router-link>
+        </li>
+      </ul>
     </nav>
     <section>这是内容</section>
   </div>
@@ -21,17 +25,17 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'layout',
   data () {
     return {
       navList:[
         {
           title:'首页',
-          action:'/',
+          action:'/index',
         },
         {
           title:'文章',
-          action:'/',
+          action:'/articles',
         },
         {
           title:'作品',
@@ -43,6 +47,9 @@ export default {
         }
       ]
     }
+  },
+  methods:{
+    
   }
 }
 </script>
@@ -60,6 +67,7 @@ body{
 header{
   position: relative;
   padding-top:30%;
+  background:#000;
   .select{
     position: absolute;
     left:50%;
@@ -67,12 +75,16 @@ header{
     width:500px;
     margin-left:-250px;
     color:#fff;
+    text-align: center;
     form{
       input[type="text"]{
         background: none;
         border:2px solid #fff;
         width:100%;
         height: 45px;
+        padding-left:5px;
+        color:#fff;
+        font-size: 1rem;
       }
     }
   }
@@ -84,5 +96,25 @@ canvas {
   width:100% !important;
   height:100% !important;
   cursor: pointer;
+}
+nav{
+  ul {
+    text-align: center;
+    li{
+      list-style: none;
+      display: inline-block;
+      padding:0 2rem;
+      font-size: 1.5rem;
+      line-height: 3rem;
+      a{
+        text-decoration: none;
+        color:#000;
+      }
+    }
+  }
+}
+section{
+  padding:0 2rem;
+  width:100%;
 }
 </style>
